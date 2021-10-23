@@ -7,8 +7,8 @@ public class Main {
     }
 
     private static void testLinkedList() {
- //       LinkedList<Integer> linkedList = new SimpleLinkedListImpl<>();
-        var linkedList = new TwoSideLinkedListImpl<>();
+        FullDirectionLinkedListImpl<Integer> linkedList = new FullDirectionLinkedListImpl<>();
+     //  var linkedList = new TwoSideLinkedListImpl<>();
         linkedList.insertFirst(1);
         linkedList.insertFirst(2);
         linkedList.insertFirst(3);
@@ -17,9 +17,9 @@ public class Main {
         linkedList.insertFirst(6);
         linkedList.insertFirst(7);
         linkedList.insertFirst(8);
-        linkedList.insertLast(9);
-        linkedList.insertLast(10);
-        linkedList.insertLast(11);
+//        linkedList.insertLast(9);
+//        linkedList.insertLast(10);
+//        linkedList.insertLast(11);
 
         linkedList.display();
 
@@ -36,9 +36,9 @@ public class Main {
 
         //ДОЛЖНО РАБОТАТЬ! Iterable - LinkedListIterator impl Iterator
 
-//        for (Integer value : linkedList) {
-//            System.out.println("value: " + value);
-//        }
+        for (Integer value : linkedList) {
+            System.out.println("value: " + value);
+        }
     }
 
 }

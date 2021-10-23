@@ -1,4 +1,4 @@
-package ru.geekbrains.Homework4.LinkedLists.deque;
+package ru.geekbrains.Homework3.StackAndQueue.deque;
 
 public class DequeTest {
     public static void main(String[] args) {

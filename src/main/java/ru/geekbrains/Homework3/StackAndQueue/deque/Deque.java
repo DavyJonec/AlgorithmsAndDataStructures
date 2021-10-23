@@ -1,6 +1,6 @@
-package ru.geekbrains.Homework4.LinkedLists.deque;
+package ru.geekbrains.Homework3.StackAndQueue.deque;
 
-import ru.geekbrains.Homework4.LinkedLists.queue.Queue;
+import ru.geekbrains.Homework3.StackAndQueue.queue.Queue;
 
 public interface Deque<E> extends Queue<E> {
 

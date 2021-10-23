@@ -1,4 +1,4 @@
-package ru.geekbrains.Homework4.LinkedLists.stack;
+package ru.geekbrains.Homework3.StackAndQueue.stack;
 
 public class StackImpl<E> implements Stack<E> {
 

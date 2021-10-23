@@ -1,7 +1,7 @@
-package ru.geekbrains.Homework4.LinkedLists.deque;
+package ru.geekbrains.Homework3.StackAndQueue.deque;
 
 
-import ru.geekbrains.Homework4.LinkedLists.queue.QueueImpl;
+import ru.geekbrains.Homework3.StackAndQueue.queue.QueueImpl;
 
 public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
 

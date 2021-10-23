@@ -1,21 +1,14 @@
-package ru.geekbrains.Homework4.LinkedLists.queue;
+package ru.geekbrains.Homework3.StackAndQueue.queue;
 
-public class QueueImpl<E> implements Queue<E>{
+public class PriorityQueueImpl<E extends Comparable<? super E>> implements Queue<E> {
 
     protected final E[] data;
     protected int size;
 
-    protected int tail;
-    protected int head;
-
-    protected final int HEAD_DEFAULT = 0;
-    protected final int TAIL_DEFAULT = -1;
-
-    public QueueImpl(int maxSize) {
-        this.data = (E[])new Object[maxSize];
-        head = HEAD_DEFAULT;
-        tail = TAIL_DEFAULT;
+    public PriorityQueueImpl(int maxSize) {
+        this.data = (E[]) new Comparable[maxSize];
     }
+
 
     @Override
     public boolean insert(E value) {
@@ -23,33 +16,28 @@ public class QueueImpl<E> implements Queue<E>{
             return false;
         }
 
-        if (tail == data.length - 1) {
-            tail = TAIL_DEFAULT;
+        int index;
+        for (index = size - 1; index >= 0 ; index--) {
+            if (value.compareTo(data[index]) < 0) {
+                data[index + 1] = data[index];
+            } else {
+                break;
+            }
         }
 
-        data[++tail] = value;
+        data[index + 1] = value;
         size++;
         return true;
     }
 
     @Override
     public E remove() {
-        if (isEmpty()) {
-            return null;
-        }
-
-        if (head == data.length) {
-            head = HEAD_DEFAULT;
-        }
-
-        E value = data[head++];
-        size--;
-        return value;
+        return isEmpty() ? null : data[--size];
     }
 
     @Override
     public E peekFront() {
-        return data[head];
+        return data[size - 1];
     }
 
     @Override
@@ -75,9 +63,9 @@ public class QueueImpl<E> implements Queue<E>{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
-        for (int i = head; i <= tail; i++) {
+        for (int i = 0; i < size; i++) {
             sb.append(data[i]);
-            if (i != tail) {
+            if (i != size - 1) {
                 sb.append(", ");
             }
         }

@@ -1,6 +1,6 @@
 package ru.geekbrains.Homework4.LinkedLists;
 
-import ru.geekbrains.Homework4.LinkedLists.queue.Queue;
+import ru.geekbrains.Homework3.StackAndQueue.queue.Queue;
 
 public class LinkedQueue<E> implements Queue<E> {
     private final TwoSideLinkedList<E> data;

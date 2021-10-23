@@ -1,6 +1,6 @@
 package ru.geekbrains.Homework4.LinkedLists;
 
-import ru.geekbrains.Homework4.LinkedLists.stack.Stack;
+import ru.geekbrains.Homework3.StackAndQueue.stack.Stack;
 
 public class LinkedListStack<E> implements Stack<E> {
 

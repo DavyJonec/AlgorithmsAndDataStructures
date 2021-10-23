@@ -1,14 +1,21 @@
-package ru.geekbrains.Homework4.LinkedLists.queue;
+package ru.geekbrains.Homework3.StackAndQueue.queue;
 
-public class PriorityQueueImpl<E extends Comparable<? super E>> implements Queue<E> {
+public class QueueImpl<E> implements Queue<E>{
 
     protected final E[] data;
     protected int size;
 
-    public PriorityQueueImpl(int maxSize) {
-        this.data = (E[]) new Comparable[maxSize];
-    }
+    protected int tail;
+    protected int head;
 
+    protected final int HEAD_DEFAULT = 0;
+    protected final int TAIL_DEFAULT = -1;
+
+    public QueueImpl(int maxSize) {
+        this.data = (E[])new Object[maxSize];
+        head = HEAD_DEFAULT;
+        tail = TAIL_DEFAULT;
+    }
 
     @Override
     public boolean insert(E value) {
@@ -16,28 +23,33 @@ public class PriorityQueueImpl<E extends Comparable<? super E>> implements Queue
             return false;
         }
 
-        int index;
-        for (index = size - 1; index >= 0 ; index--) {
-            if (value.compareTo(data[index]) < 0) {
-                data[index + 1] = data[index];
-            } else {
-                break;
-            }
+        if (tail == data.length - 1) {
+            tail = TAIL_DEFAULT;
         }
 
-        data[index + 1] = value;
+        data[++tail] = value;
         size++;
         return true;
     }
 
     @Override
     public E remove() {
-        return isEmpty() ? null : data[--size];
+        if (isEmpty()) {
+            return null;
+        }
+
+        if (head == data.length) {
+            head = HEAD_DEFAULT;
+        }
+
+        E value = data[head++];
+        size--;
+        return value;
     }
 
     @Override
     public E peekFront() {
-        return data[size - 1];
+        return data[head];
     }
 
     @Override
@@ -63,9 +75,9 @@ public class PriorityQueueImpl<E extends Comparable<? super E>> implements Queue
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i < size; i++) {
+        for (int i = head; i <= tail; i++) {
             sb.append(data[i]);
-            if (i != size - 1) {
+            if (i != tail) {
                 sb.append(", ");
             }
         }

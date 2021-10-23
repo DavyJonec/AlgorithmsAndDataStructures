@@ -1,4 +1,4 @@
-package ru.geekbrains.Homework4.LinkedLists.queue;
+package ru.geekbrains.Homework3.StackAndQueue.queue;
 
 public interface Queue<E> {
 
