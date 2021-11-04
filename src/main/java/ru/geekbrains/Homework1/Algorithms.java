@@ -1,6 +1,11 @@
 package ru.geekbrains.Homework1;
 
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Algorithms {
+
     /* Номер 2
     -. Поиск элемента массива с известным индексом - O(1)
     -. Дублирование одномерного массива через foreach - O(n)
